@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>С Днём Рождения, Даша!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Анимированный фон -->
+    <div class="cosmic-background"></div>
+    <div class="floating-particles" id="particles"></div>
+    
+    <!-- Главный экран -->
+    <div class="main-container">
+        <div class="birthday-card">
+            <div class="card-inner">
+                <!-- Лицевая сторона -->
+                <div class="card-front">
+                    <div class="front-content">
+                        <div class="photo-frame">
+                            <img src="img/женщина.jpg" alt="Даша" class="main-photo" onerror="this.src='https://placehold.co/250x250/8a4fff/ffffff?text=Д'">
+                            <div class="photo-glow"></div>
+                            <div class="decoration star-1">✨</div>
+                            <div class="decoration star-2">⭐</div>
+                            <div class="decoration star-3">🌟</div>
+                        </div>
+                        
+                        <h1 class="birthday-title">С Днём Рождения!</h1>
+                        <p class="birthday-subtitle">Дорогая Даша</p>
+                        
+                        <div class="cta-buttons">
+                            <button class="cta-btn" onclick="openCard()">
+                                <i class="fas fa-gift"></i>
+                                <span>Открыть поздравление</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Внутренняя сторона -->
+                <div class="card-inside">
+                    <div class="inside-content">
+                        <div class="inside-header">
+                            <h2>Дорогая Даша!</h2>
+                            <p>В этот особенный день хотим пожелать тебе:</p>
+                        </div>
+                        
+                        <div class="wishes-grid">
+                            <div class="wish-item">
+                                <div class="wish-icon">💫</div>
+                                <h3>Счастья</h3>
+                                <p>Пусть каждый день приносит радость и улыбки</p>
+                            </div>
+                            
+                            <div class="wish-item">
+                                <div class="wish-icon">🌟</div>
+                                <h3>Здоровья</h3>
+                                <p>Крепкого здоровья и прекрасного настроения</p>
+                            </div>
+                            
+                            <div class="wish-item">
+                                <div class="wish-icon">✨</div>
+                                <h3>Удачи</h3>
+                                <p>Удачи во всех начинаниях и проектах</p>
+                            </div>
+                            
+                            <div class="wish-item">
+                                <div class="wish-icon">🎉</div>
+                                <h3>Любви</h3>
+                                <p>Любви и тепла от близких людей</p>
+                            </div>
+                        </div>
+                        
+                        <div class="interactive-section">
+                            <h3>Выбери виртуальный подарок:</h3>
+                            <div class="gifts-container">
+                                <div class="gift-option" onclick="selectGift(this, '🎂', 'Вкусный торт!')">
+                                    <span class="gift-emoji">🎂</span>
+                                    <span class="gift-text">Торт</span>
+                                </div>
+                                <div class="gift-option" onclick="selectGift(this, '💐', 'Красивые цветы!')">
+                                    <span class="gift-emoji">💐</span>
+                                    <span class="gift-text">Цветы</span>
+                                </div>
+                                <div class="gift-option" onclick="selectGift(this, '🎁', 'Сюрприз!')">
+                                    <span class="gift-emoji">🎁</span>
+                                    <span class="gift-text">Подарок</span>
+                                </div>
+                                <div class="gift-option" onclick="selectGift(this, '⭐', 'Звёзды удачи!')">
+                                    <span class="gift-emoji">⭐</span>
+                                    <span class="gift-text">Удача</span>
+                                </div>
+                            </div>
+                            <div class="gift-result" id="giftResult"></div>
+                        </div>
+
+                        <div class="quote-section">
+                            <div class="quote">
+                                <i class="fas fa-quote-left"></i>
+                                <p>Пусть этот день будет наполнен волшебством и радостью!</p>
+                                <i class="fas fa-quote-right"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="final-wish">
+                            <p>Будь счастлива каждый день! 💖</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Дополнительные элементы -->
+        <div class="controls">
+            <button class="control-btn" onclick="createConfetti()">
+                <i class="fas fa-sparkles"></i>
+                Конфетти
+            </button>
+            <button class="control-btn" onclick="createFireworks()">
+                <i class="fas fa-fire"></i>
+                Фейерверк
+            </button>
+            <button class="control-btn" onclick="showSecret()">
+                <i class="fas fa-star"></i>
+                Секрет
+            </button>
+            <button class="control-btn" onclick="createButterflies()">
+                <i class="fas fa-butterfly"></i>
+                Бабочки
+            </button>
+        </div>
+    </div>
+
+    <!-- Секретное модальное окно -->
+<div class="modal" id="secretModal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <div class="secret-content">
+            <div class="secret-header">
+                <h3>Секретное послание! 🎊</h3>
+                <p>Ты нашла скрытый сюрприз!</p>
+            </div>
+            
+            <div class="gif-container">
+                <!-- Контейнер для прокрутки -->
+                <div class="scrollable-media">
+                    <!-- Видео с fallback на гифку -->
+                    <video id="secretVideo" autoplay loop muted playsinline class="secret-media"
+                           onerror="showFallback()" style="display: none;">
+                        <source src="img/video.mp4" type="video/mp4">
+                        <source src="img/video.webm" type="video/webm">
+                    </video>
+                    
+                    <img id="fallbackGif" src="img/animation.gif" alt="Праздничная анимация" class="secret-media"
+                         onerror="showUltimateFallback()" style="display: none;">
+                    
+                    <img id="ultimateFallback" src="https://media.giphy.com/media/3o7TKsQ8gqVrwlNtCU/giphy.gif" 
+                         alt="Праздничная гифка" class="secret-media" style="display: none;">
+                </div>
+                
+                <div class="gif-overlay">
+                    <div class="scroll-hint">
+                        <i class="fas fa-arrows-alt-v"></i>
+                        <span>Прокручивай</span>
+                    </div>
+                    <div class="sparkles">✨✨✨</div>
+                </div>
+            </div>
+            
+            <div class="secret-message">
+                <p>Ты особенная и замечательная! Помни это всегда! 💫</p>
+                <div class="secret-quote">"Сегодня твой день - сияй особенно ярко!"</div>
+            </div>
+            
+            <div class="secret-actions">
+                <button class="secret-btn" onclick="createSpecialEffects()">
+                    <i class="fas fa-sparkles"></i>
+                    Запустить магию
+                </button>
+                <button class="secret-btn secondary" onclick="closeModal()">
+                    <i class="fas fa-heart"></i>
+                    Спасибо!
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="notification" id="notification"></div>
+    <div class="effects-container" id="effectsContainer"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
