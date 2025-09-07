@@ -135,18 +135,16 @@
     </div>
 
     <!-- Секретное модальное окно -->
-<div class="modal" id="secretModal">
-    <div class="modal-content">
-        <span class="close-btn" onclick="closeModal()">&times;</span>
-        <div class="secret-content">
-            <div class="secret-header">
-                <h3>Секретное послание! 🎊</h3>
-                <p>Ты нашла скрытый сюрприз!</p>
-            </div>
-            
-            <div class="gif-container">
-                <!-- Контейнер для прокрутки -->
-                <div class="scrollable-media">
+    <div class="modal" id="secretModal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <div class="secret-content">
+                <div class="secret-header">
+                    <h3>Секретное послание! 🎊</h3>
+                    <p>Ты нашла скрытый сюрприз!</p>
+                </div>
+                
+                <div class="gif-container">
                     <!-- Видео с fallback на гифку -->
                     <video id="secretVideo" autoplay loop muted playsinline class="secret-media"
                            onerror="showFallback()" style="display: none;">
@@ -154,40 +152,35 @@
                         <source src="img/video.webm" type="video/webm">
                     </video>
                     
-                    <img id="fallbackGif" src="img/animation.gif" alt="Праздничная анимация" class="secret-media"
+                    <img id="fallbackGif" src="img/ы.gif" alt="Праздничная анимация" class="secret-media"
                          onerror="showUltimateFallback()" style="display: none;">
                     
-                    <img id="ultimateFallback" src="https://media.giphy.com/media/3o7TKsQ8gqVrwlNtCU/giphy.gif" 
+                    <img id="ultimateFallback" src="img/ы.gif" 
                          alt="Праздничная гифка" class="secret-media" style="display: none;">
+                    
+                    <div class="gif-overlay">
+                        <div class="sparkles">✨✨✨</div>
+                    </div>
                 </div>
                 
-                <div class="gif-overlay">
-                    <div class="scroll-hint">
-                        <i class="fas fa-arrows-alt-v"></i>
-                        <span>Прокручивай</span>
-                    </div>
-                    <div class="sparkles">✨✨✨</div>
+                <div class="secret-message">
+                    <p>Ты особенная и замечательная! Помни это всегда! 💫</p>
+                    <div class="secret-quote">"Сегодня твой день - сияй особенно ярко!"</div>
                 </div>
-            </div>
-            
-            <div class="secret-message">
-                <p>Ты особенная и замечательная! Помни это всегда! 💫</p>
-                <div class="secret-quote">"Сегодня твой день - сияй особенно ярко!"</div>
-            </div>
-            
-            <div class="secret-actions">
-                <button class="secret-btn" onclick="createSpecialEffects()">
-                    <i class="fas fa-sparkles"></i>
-                    Запустить магию
-                </button>
-                <button class="secret-btn secondary" onclick="closeModal()">
-                    <i class="fas fa-heart"></i>
-                    Спасибо!
-                </button>
+                
+                <div class="secret-actions">
+                    <button class="secret-btn" onclick="createSpecialEffects()">
+                        <i class="fas fa-sparkles"></i>
+                        Запустить магию
+                    </button>
+                    <button class="secret-btn secondary" onclick="closeModal()">
+                        <i class="fas fa-heart"></i>
+                        Спасибо!
+                    </button>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
     <div class="notification" id="notification"></div>
     <div class="effects-container" id="effectsContainer"></div>
